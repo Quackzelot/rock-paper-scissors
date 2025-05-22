@@ -1,3 +1,4 @@
+// Computer Choice
 let pcChoice;
 function getComputerChoice() {
   pcChoice = Math.random();
@@ -9,5 +10,18 @@ function getComputerChoice() {
     pcChoice = "Scissors";
   }
 }
+
+// Test Computer Choice
 getComputerChoice();
 console.log(pcChoice);
+
+// Human Choice
+let humanChoice;
+function getHumanChoice()
+{
+  humanChoice = prompt("Please make your choice", "Rock, Paper, Scissors");
+}
+
+// Test Human Choice
+getHumanChoice();
+console.log(humanChoice);
