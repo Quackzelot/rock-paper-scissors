@@ -1,27 +1,51 @@
+// Variables
+let computerChoice;
+let humanChoice;
+let humanScore = 0;
+let computerScore = 0;
+let result;
+
 // Computer Choice
-let pcChoice;
 function getComputerChoice() {
-  pcChoice = Math.random();
-  if (pcChoice >= 0 && pcChoice <= 0.33) {
-    pcChoice = "Rock";
-  } else if (pcChoice >= 0.34 && pcChoice <= 0.66) {
-    pcChoice = "Paper";
+  computerChoice = Math.random();
+  if (computerChoice >= 0 && computerChoice <= 0.33) {
+    computerChoice = "rock";
+  } else if (computerChoice >= 0.34 && computerChoice <= 0.66) {
+    computerChoice = "paper";
   } else {
-    pcChoice = "Scissors";
+    computerChoice = "scissors";
   }
 }
 
-// Test Computer Choice
-getComputerChoice();
-console.log(pcChoice);
-
 // Human Choice
-let humanChoice;
-function getHumanChoice()
-{
+function getHumanChoice() {
   humanChoice = prompt("Please make your choice", "Rock, Paper, Scissors");
 }
 
-// Test Human Choice
+// Get Computer Choice
+getComputerChoice();
+
+// Get Human Choice
 getHumanChoice();
-console.log(humanChoice);
+
+// Game logic
+function playRound(humanChoice, computerChoice) {
+  humanChoice = humanChoice.toLowerCase();
+  if (humanChoice === "rock" && computerChoice === "rock" || humanChoice === "paper" && computerChoice == "paper" || humanChoice === "scissors" && computerChoice === "scissors") {
+    result = "Draw. Try again.";
+  }
+  else if (humanChoice === "rock" && computerChoice == "paper" || humanChoice === "paper" && computerChoice === "scissors" || humanChoice === "scissors" && computerChoice === "rock") {
+    result = "You lose. Better luck next time.";
+    computerScore = ++computerScore;
+  }
+  else {
+    result = "You win. Nice one.";
+    humanScore = ++humanScore;
+  }
+}
+
+// Output results and score
+playRound(humanChoice, computerChoice);
+console.log(result);
+console.log(computerScore);
+console.log(humanScore);
