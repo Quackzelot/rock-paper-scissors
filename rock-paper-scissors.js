@@ -3,7 +3,7 @@ let computerChoice;
 let humanChoice;
 let humanScore = 0;
 let computerScore = 0;
-let result;
+let rounds = 0;
 
 // Computer Choice
 function getComputerChoice() {
@@ -22,30 +22,39 @@ function getHumanChoice() {
   humanChoice = prompt("Please make your choice", "Rock, Paper, Scissors");
 }
 
-// Get Computer Choice
-getComputerChoice();
-
-// Get Human Choice
-getHumanChoice();
-
 // Game logic
 function playRound(humanChoice, computerChoice) {
   humanChoice = humanChoice.toLowerCase();
   if (humanChoice === "rock" && computerChoice === "rock" || humanChoice === "paper" && computerChoice == "paper" || humanChoice === "scissors" && computerChoice === "scissors") {
-    result = "Draw. Try again.";
   }
   else if (humanChoice === "rock" && computerChoice == "paper" || humanChoice === "paper" && computerChoice === "scissors" || humanChoice === "scissors" && computerChoice === "rock") {
-    result = "You lose. Better luck next time.";
     computerScore = ++computerScore;
   }
   else {
-    result = "You win. Nice one.";
     humanScore = ++humanScore;
   }
 }
 
-// Output results and score
-playRound(humanChoice, computerChoice);
-console.log(result);
-console.log(computerScore);
-console.log(humanScore);
+// Play 5 Rounds
+function playGame() {
+  while (rounds < 5) {
+  getComputerChoice();
+  getHumanChoice();
+  playRound(humanChoice, computerChoice);
+  rounds = ++rounds;
+  }
+  if (humanScore > computerScore) {
+    console.log("You've won. Congratulations.");
+  }
+  else if (computerScore > humanScore) {
+    console.log("You've lost. Better luck next time.");
+  }
+  else {
+    console.log("Draw. Better luck next time.");
+  }
+  console.log("Your score is " + humanScore + " and the computers score is " + computerScore);
+}
+
+
+
+playGame()
