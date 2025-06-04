@@ -1,11 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
-    <script src = "rock-paper-scissors.js"></script>
-</body>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="flex">
+      <div class="choice">
+        <div class="weapon">
+          <img src="rock.jpg" alt="Rock" height="250" width="250"/>
+          <button id="rock">Rock</button>
+        </div>
+        <div class="weapon">
+          <img src="paper.jpg" alt="Paper" height="250" width="250"/>
+          <button id="paper">Paper</button>
+        </div>
+        <div class="weapon">
+          <img src="scissors.jpg" alt="Scissors" height="250" width="250"/>
+          <button id="scissors">Scissors</button>
+        </div>
+      </div>
+      <div id="results">Results:</div>
+    </div>
+    <script src="rock-paper-scissors.js"></script>
+  </body>
 </html>
